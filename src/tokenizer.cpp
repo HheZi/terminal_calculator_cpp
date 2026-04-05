@@ -16,7 +16,7 @@ std::vector<std::variant<NumberToken, OperationToken> > splitExpression(const st
     std::string token;
 
     while (ss >> token) {
-        bool is_number = true;
+        bool is_number = false;
         for (size_t i = 0; i < token.size(); ++i) {
             char c = token[i];
 
@@ -24,10 +24,7 @@ std::vector<std::variant<NumberToken, OperationToken> > splitExpression(const st
                 continue;
             }
 
-            if (!std::isdigit(c) && c != '.') {
-                is_number = false;
-                break;
-            }
+            is_number = std::isdigit(c) || c == '.';
         }
 
         if (is_number) {
