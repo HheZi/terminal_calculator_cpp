@@ -7,9 +7,8 @@
 #include <queue>
 #include <variant>
 
-#include "number_token.h"
 #include "operation_token.h"
 
-double calculateRPN(std::queue<std::variant<NumberToken, OperationToken>> &queue);
+double calculateRPN(std::queue<std::variant<double, OperationToken>> &queue);
 
 #endif //TERMINAL_CALCULATOR_RPN_CALCULATOR_H

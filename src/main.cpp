@@ -17,9 +17,9 @@ int main() {
         }
 
         try {
-            const std::vector<std::variant<NumberToken, OperationToken> > &tokens = splitExpression(expression);
+            const std::vector<std::variant<double, OperationToken> > &tokens = splitExpression(expression);
 
-            std::queue<std::variant<NumberToken, OperationToken> > rpn = convertToRPN(tokens);
+            std::queue<std::variant<double, OperationToken> > rpn = convertToRPN(tokens);
 
             const double result = calculateRPN(rpn);
 

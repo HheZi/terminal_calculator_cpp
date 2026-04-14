@@ -10,7 +10,6 @@ add_executable(terminal_calculator src/main.cpp
         src/include/tokenizer.h
         src/include/operation_token.h
         src/operation_token.cpp
-        src/include/number_token.h
         src/rpn_calculator.cpp
         src/include/rpn_calculator.h
 )

@@ -4,9 +4,8 @@
 #include <string>
 #include <variant>
 #include <vector>
-#include "number_token.h"
 #include "operation_token.h"
 
-std::vector<std::variant<NumberToken, OperationToken> > splitExpression(const std::string &expression);
+std::vector<std::variant<double, OperationToken> > splitExpression(const std::string &expression);
 
 #endif //TERMINAL_CALCULATOR_TOKENIZER_H

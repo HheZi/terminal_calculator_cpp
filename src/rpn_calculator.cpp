@@ -3,15 +3,15 @@
 #include <stack>
 #include <stdexcept>
 
-double calculateRPN(std::queue<std::variant<NumberToken, OperationToken> > &queue) {
+double calculateRPN(std::queue<std::variant<double, OperationToken> > &queue) {
     std::stack<double> stack{};
 
     while (!queue.empty()) {
-        const std::variant<NumberToken, OperationToken> &variant = queue.front();
+        const std::variant<double, OperationToken> &variant = queue.front();
 
-        if (std::holds_alternative<NumberToken>(variant)) {
-            const auto &number = std::get<NumberToken>(variant);
-            stack.push(number.getValue());
+        if (std::holds_alternative<double>(variant)) {
+            const auto &number = std::get<double>(variant);
+            stack.push(number);
         } else {
             const auto &operation = std::get<OperationToken>(variant);
 

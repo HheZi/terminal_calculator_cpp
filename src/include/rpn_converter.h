@@ -5,9 +5,8 @@
 #include <variant>
 #include <vector>
 
-#include "number_token.h"
 #include "operation_token.h"
 
-std::queue<std::variant<NumberToken, OperationToken>> convertToRPN(const std::vector<std::variant<NumberToken, OperationToken>> &tokens);
+std::queue<std::variant<double, OperationToken>> convertToRPN(const std::vector<std::variant<double, OperationToken>> &tokens);
 
 #endif //TERMINAL_CALCULATOR_RPN_CONVERTOR_H

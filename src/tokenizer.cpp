@@ -4,12 +4,11 @@
 #include <sstream>
 #include <variant>
 
-#include "include/number_token.h"
 #include "include/operation_token.h"
 
 
-std::vector<std::variant<NumberToken, OperationToken> > splitExpression(const std::string &expression) {
-    std::vector<std::variant<NumberToken, OperationToken> > tokens{};
+std::vector<std::variant<double, OperationToken> > splitExpression(const std::string &expression) {
+    std::vector<std::variant<double, OperationToken> > tokens{};
 
     std::stringstream ss{expression};
 
@@ -28,7 +27,7 @@ std::vector<std::variant<NumberToken, OperationToken> > splitExpression(const st
         }
 
         if (is_number) {
-            tokens.emplace_back(NumberToken{std::stod(token)});
+            tokens.emplace_back(std::stod(token));
         } else {
             if (token.length() > 1) {
                 throw std::runtime_error{std::string{"Incorrect operator "} + token};

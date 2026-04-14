@@ -3,13 +3,13 @@
 #include <stack>
 #include <stdexcept>
 
-std::queue<std::variant<NumberToken, OperationToken> > convertToRPN(
-    const std::vector<std::variant<NumberToken, OperationToken> > &tokens) {
-    std::queue<std::variant<NumberToken, OperationToken> > output{};
+std::queue<std::variant<double, OperationToken> > convertToRPN(
+    const std::vector<std::variant<double, OperationToken> > &tokens) {
+    std::queue<std::variant<double, OperationToken> > output{};
     std::stack<OperationToken> operations{};
 
     for (const auto &token: tokens) {
-        if (std::holds_alternative<NumberToken>(token)) {
+        if (std::holds_alternative<double>(token)) {
             output.push(token);
         } else {
             const auto &operation_token = std::get<OperationToken>(token);
